@@ -1,0 +1,61 @@
+# Xcode
+DerivedData/
+.idea/
+xcuserdata/
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcshareddata/
+*.xcscmblueprint
+!default.xcworkspace
+
+# Swift Package Manager
+Packages/
+.build/
+.swiftpm/
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Build artifacts
+build/
+*.app
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xcarchive
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/report.html
+fastlane/xcov_output/
+
+# Temporary files
+*.tmp
+*.swp
+*.lock
+
+# Environment variables and sensitive information
+.env
+
+# macOS files
+.DS_Store
+*.plist
+
+# Logs
+*.log
+*.xcactivitylog
+*.crash
+*.profdata
+*.gcda
+*.gcno
+
+
