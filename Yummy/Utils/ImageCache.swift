@@ -16,6 +16,7 @@ protocol ImageCache: Sendable {
 }
 
 actor DefaultImageCache: ImageCache {
+    
     //MARK: - API
     
     init(directoryName: String = "ImageCache") {
@@ -30,9 +31,19 @@ actor DefaultImageCache: ImageCache {
         createCacheDirectory()
     }
 
-
+    /**
+     Saves an image to the cache directory.
+     
+     - Parameters:
+     - image: The `UIImage` to be cached.
+     - key: A unique key for identifying the cached image. **Note:** Ensure the key is stripped of punctuation characters to avoid conflicts with directory paths.
+     
+     This function converts the provided image to JPEG format and writes it to the cache directory. If the conversion fails or an error occurs while writing, it logs the error.
+     
+     - Important: If the `key` contains special characters such as slashes or punctuation, they may interfere with file paths. Use a sanitized key to avoid issues.
+     */
     func saveImage(_ image: UIImage, forKey key: String) async {
-        let fileURL = cacheDirectory.appendingPathComponent(key).appendingPathExtension("jpg")
+        let fileURL = cacheDirectory.appendingPathComponent(key)
         guard let data = image.jpegData(compressionQuality: 1) else {
             print("Failed to convert image to JPEG data.")
             return
@@ -44,15 +55,30 @@ actor DefaultImageCache: ImageCache {
             print("Failed to save image to cache: \(error.localizedDescription)")
         }
     }
-
+    
+    /**
+     Loads an image from the cache directory.
+     
+     - Parameter key: The unique key used to identify the cached image. **Note:** Ensure the key is stripped of punctuation characters to match the saved file name.
+     - Returns: The cached `UIImage` if it exists; otherwise, `nil`.
+     
+     This function checks the cache directory for a file corresponding to the provided key. If the file exists, it loads and returns the image.
+     */
     func loadImage(forKey key: String) async -> UIImage? {
-        let fileURL = cacheDirectory.appendingPathComponent(key).appendingPathExtension("jpg")
+        let fileURL = cacheDirectory.appendingPathComponent(key)
         if FileManager.default.fileExists(atPath: fileURL.path) {
             return UIImage(contentsOfFile: fileURL.path)
         }
         return nil
     }
-
+    
+    /**
+     Deletes an image from the cache directory.
+     
+     - Parameter key: The unique key used to identify the cached image. **Note:** Ensure the key is stripped of punctuation characters to match the saved file name.
+     
+     This function removes the cached file corresponding to the provided key from the cache directory. If the file does not exist or an error occurs while deleting, it logs the error.
+     */
     func deleteImage(forKey key: String) {
         let fileURL = cacheDirectory.appendingPathComponent(key).appendingPathExtension("jpg")
         if FileManager.default.fileExists(atPath: fileURL.path) {
@@ -92,12 +118,5 @@ actor DefaultImageCache: ImageCache {
                 print("Failed to create cache directory: \(error.localizedDescription)")
             }
         }
-    }
-}
-
-extension Container {
-    
-    var imageCache: Factory<ImageCache> {
-        self { DefaultImageCache() }
     }
 }

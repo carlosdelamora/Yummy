@@ -11,20 +11,21 @@ struct RecipeCardView: View {
     var recipe: Recipe
     var body: some View {
         ZStack {
-            AsyncImage(url: recipe.photoURL) { phase in
-                switch phase {
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: height)
-                        
-                case .failure, .empty:
-                    EmptyView()
-                @unknown default:
-                    EmptyView()
-                }
-            }
+            AsyncImageView(url: recipe.photoURL)
+//            AsyncImage(url: recipe.photoURL) { phase in
+//                switch phase {
+//                case .success(let image):
+//                    image
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(height: height)
+//                        
+//                case .failure, .empty:
+//                    EmptyView()
+//                @unknown default:
+//                    EmptyView()
+//                }
+//            }
             VStack {
                 Spacer()
                 HStack {

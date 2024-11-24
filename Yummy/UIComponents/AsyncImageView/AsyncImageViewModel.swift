@@ -19,13 +19,13 @@ final class AsyncImageViewModel: ObservableObject {
             loadingState = .failed
             return
         }
-        
-        // We check if the image is in the cache
-        if let uiImage = imageProvider.loadImage(forKey: url.absoluteString) {
-            loadingState = .loaded(Image(uiImage: uiImage))
-            return
+        loadingState = .loading
+        do {
+            let image = try await imageProvider.image(for: url)
+            loadingState = .loaded(image)
+        } catch {
+            loadingState = .failed
         }
-        
     }
     
     @Injected(\.imageProvider) private var imageProvider

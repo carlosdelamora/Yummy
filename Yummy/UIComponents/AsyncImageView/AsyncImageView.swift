@@ -18,6 +18,9 @@ struct AsyncImageView: View {
         switch viewModel.loadingState {
         case .loading:
             Color.gray
+                .task {
+                    await viewModel.fetchImage(from: url)
+                }
         case .loaded(let uiImage):
             Image(uiImage: uiImage)
                 .resizable()
@@ -34,5 +37,5 @@ struct AsyncImageView: View {
 
 
 #Preview {
-    AsyncImageView()
+    AsyncImageView(url: URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/7276e9f9-02a2-47a0-8d70-d91bdb149e9e/small.jpg"))
 }
