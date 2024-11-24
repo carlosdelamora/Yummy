@@ -6,7 +6,7 @@
 //
 import Foundation
 
-struct Recipe {
+struct Recipe: Identifiable {
     let id: UUID
     let cusine: String
     let name: String

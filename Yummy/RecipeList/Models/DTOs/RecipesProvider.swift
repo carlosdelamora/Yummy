@@ -10,11 +10,11 @@ import Foundation
 import Networking
 import Factory
 
-protocol RecipiesProviding: Sendable {
+protocol RecipesProviding: Sendable {
     func recipies() async throws -> RecipesResponseDTO
 }
 
-actor DefaultRecipesProvider: RecipiesProviding {
+actor DefaultRecipesProvider: RecipesProviding {
     
     func recipies() async throws -> RecipesResponseDTO {
         guard let url = networkConfigs.baseURL else { throw NetworkConfigsError.invalidURL }
