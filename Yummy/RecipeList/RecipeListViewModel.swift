@@ -46,11 +46,13 @@ final class RecipeListViewModel: ObservableObject {
                 })
             if !recipes.isEmpty {
                 loadingState = .loaded(recipes)
-            } else {
+            } else if !isPreLoaded {
                 loadingState = .empty
             }
         } catch {
-            loadingState = .error
+            if !isPreLoaded {
+                loadingState = .error
+            }
         }
     }
 }
