@@ -1,5 +1,13 @@
 # Yummy
 
+Yummy is a Swift-based application that demonstrates best practices in software development, focusing on architecture, dependency injection, modularization, and unit testing. Plus it has amazing recipes. 
+
+
+
+
+https://github.com/user-attachments/assets/b1155cef-48a2-4152-a51a-0cc79d563759
+
+
 ---
 
 ## Steps to Run the App
