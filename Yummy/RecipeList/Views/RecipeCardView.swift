@@ -12,20 +12,8 @@ struct RecipeCardView: View {
     var body: some View {
         ZStack {
             AsyncImageView(url: recipe.photoURL)
-//            AsyncImage(url: recipe.photoURL) { phase in
-//                switch phase {
-//                case .success(let image):
-//                    image
-//                        .resizable()
-//                        .scaledToFill()
-//                        .frame(height: height)
-//                        
-//                case .failure, .empty:
-//                    EmptyView()
-//                @unknown default:
-//                    EmptyView()
-//                }
-//            }
+                .scaledToFill()
+                .frame(height: height)
             VStack {
                 Spacer()
                 HStack {
@@ -39,7 +27,7 @@ struct RecipeCardView: View {
                     Spacer()
                 }
                 .frame(minHeight: labelHeight)
-                .background(Color.white)
+                .background(Color.white.opacity(0.8))
             }
         }
         .frame(height: height + labelHeight)

@@ -37,5 +37,10 @@ struct AsyncImageView: View {
 
 
 #Preview {
-    AsyncImageView(url: URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/7276e9f9-02a2-47a0-8d70-d91bdb149e9e/small.jpg"))
+    AsyncImageView(
+        url: URL(
+            string: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/7276e9f9-02a2-47a0-8d70-d91bdb149e9e/small.jpg"
+        )
+    )
+    .aspectRatio(contentMode: .fill)
 }
