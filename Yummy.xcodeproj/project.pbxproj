@@ -23,9 +23,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA8259082D01E7F3006CD394 /* YummyModules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = YummyModules; sourceTree = "<group>"; };
 		CAB103642CF37B2000D2D4E2 /* Yummy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yummy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB103742CF37B2100D2D4E2 /* YummyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YummyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAB103922CF37D3800D2D4E2 /* YummyModules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = YummyModules; path = ../YummyModules; sourceTree = SOURCE_ROOT; };
 		CAB103CC2CF3F2C800D2D4E2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB103CC2CF3F2C800D2D4E2 /* README.md */,
-				CAB103922CF37D3800D2D4E2 /* YummyModules */,
+				CA8259082D01E7F3006CD394 /* YummyModules */,
 				CAB103662CF37B2000D2D4E2 /* Yummy */,
 				CAB103772CF37B2100D2D4E2 /* YummyTests */,
 				CAB103A02CF396D400D2D4E2 /* Frameworks */,
